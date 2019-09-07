@@ -14,7 +14,7 @@ Show system information for various OSes, including load, uptime, cpu informatio
 
 ### Linux
 
-##### Linux Mint (as an unprivileged user)
+##### Linux Mint 19.1 (as an unprivileged user)
 ```
 chad@dev-vm:~$ sudo sysinfo.sh
 ------------------------------------------------------------------------
@@ -38,7 +38,7 @@ Docker Version:      >>>FOR THIS STAT, RUN AS ROOT<<<
 ------------------------------------------------------------------------
 ```
 
-##### Linux Mint (as root)
+##### Linux Mint 19.1 (as root)
 ```
 chad@dev-vm:~$ sudo sysinfo.sh
 ------------------------------------------------------------------------
@@ -61,28 +61,28 @@ External IP:         170.xx.xx.xx (170-xx-xx-xx.ut.internethost.net)
 Docker Version:      18.09.7
 ------------------------------------------------------------------------
 ```
-##### CentOS 7
+##### CentOS 7.6
 
 ```
-[chad@nuc1 ~]$ sudo ./sysinfo.sh
+chad@nuc:~$ curl -sSL https://git.io/sysinfo.sh | sudo bash
 ------------------------------------------------------------------------
-Current Date:        Wed Feb 13 20:04:12 MST 2019
-Hostname:            nuc1.domain.com
-OS:                  CentOS Linux release 7.6.1810 (Core)
-Kernel:              Linux 3.10.0-957.1.3.el7.x86_64
-HW Version:          NUC7PJYH
-HW Serial:           F6BJY813003BT
-HW UUID:             9fa57af8-919b-7abc-595f-44c6911d33ad
-Uptime:              7 weeks, 7 hours, 50 minutes
-Load Average:        0.05, 0.04, 0.05
+Current Date:        Sat Sep  7 11:54:21 MDT 2019
+Hostname:            nuc.domain.com
+OS:                  CentOS Linux release 7.6.1810 (Core) 
+Kernel:              Linux 3.10.0-957.27.2.el7.x86_64
+HW Version:          Intel Corporation NUC7PJYH
+HW Serial:           G6JY89010919
+HW UUID:             9ddacb62-1191-177e-e916-94c6493f61eb
+Uptime:              1 week, 1 hour, 59 minutes
+Load Average:        4.92, 4.84, 4.85
 Processor:           Intel(R) Pentium(R) Silver J5005 CPU @ 1.50GHz
 Core Count:          4
 Virtual Cores:       4
-Total Memory:        7.23 gigabytes
-Memory Used:         427M used (of 7.2G), 597M unused.
-Internal IP:         192.168.7.3 (Tx/Rx: 1.6 GB/1.9 GB)
+Total Memory:        15.11 gigabytes
+Memory Used:         552M used (of 15G), 2.5G unused. 
+Internal IP:         192.168.6.130 (Tx/Rx: 6.3 GiB/18.3 GiB)
 External IP:         170.xx.x.xxx (170-xx-x-xxx.ut.internethost.net)
-Docker Version:      18.09.0
+Docker Version:      19.03.1
 ------------------------------------------------------------------------
 ```
 

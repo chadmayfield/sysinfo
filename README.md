@@ -1,11 +1,11 @@
-# sysinfo
+#sysinfo
 
 Quickly gather system information and print it in an easy to consume format
 
 
 ## Description
 
-Show system information for various OSes, including load, uptime, cpu information, docker version and running containers, and network information. When used with the `--connections` option it will show all established connections with hostname if possible.
+Show system information for various OSes, including load, uptime, cpu information, docker version and running containers, and network information. When used with the `--connections` option it will show all established connections with domain if possible.
 
 (Works with: macOS, RHEL, CentOS, Ubuntu, Debian)
 
@@ -14,7 +14,7 @@ Show system information for various OSes, including load, uptime, cpu informatio
 
 ### Linux
 
-##### Linux Mint (as an unprivileged user, then as root)
+##### Linux Mint (as an unprivileged user)
 ```
 chad@dev-vm:~$ sudo sysinfo.sh
 ------------------------------------------------------------------------
@@ -36,7 +36,10 @@ Internal IP:         192.168.7.240 (Tx/Rx: 1.2 MB/25.4 MB)
 External IP:         170.xx.x.xxx (170-xx-x-xxx.ut.internethost.net)
 Docker Version:      >>>FOR THIS STAT, RUN AS ROOT<<<
 ------------------------------------------------------------------------
+```
 
+##### Linux Mint (as root)
+```
 chad@dev-vm:~$ sudo sysinfo.sh
 ------------------------------------------------------------------------
 Current Date:        Tue Jul 30 21:43:14 MDT 2019
@@ -64,7 +67,7 @@ Docker Version:      18.09.7
 [chad@nuc1 ~]$ sudo ./sysinfo.sh
 ------------------------------------------------------------------------
 Current Date:        Wed Feb 13 20:04:12 MST 2019
-Hostname:            nuc1.hostname.com
+Hostname:            nuc1.domain.com
 OS:                  CentOS Linux release 7.6.1810 (Core)
 Kernel:              Linux 3.10.0-957.1.3.el7.x86_64
 HW Version:          NUC7PJYH
@@ -88,7 +91,7 @@ Docker Version:      18.09.0
 [chad@file ~]$ sudo ./sysinfo.sh
 ------------------------------------------------------------------------
 Current Date:        Mon Jul 29 22:22:22 MDT 2019
-Hostname:            file.hostname.com
+Hostname:            file.domain.com
 OS:                  CentOS Linux release 7.6.1810 (Core)
 Kernel:              Linux 3.10.0-957.1.3.el7.x86_64
 HW Version:          Dell Inc. PowerEdge T20
@@ -109,10 +112,10 @@ Docker Version:      18.09.1
 
 ##### Ubuntu 18.04
 ```
-chad@hostname:~$ sudo sysinfo.sh
+chad@domain:~$ sudo sysinfo.sh
 ------------------------------------------------------------------------
 Current Date:        Thu Feb 14 10:18:41 MST 2019
-Hostname:            hostname
+Hostname:            domain
 OS:                  Ubuntu 18.04.2 LTS
 Kernel:              Linux 4.15.0-45-generic
 HW Version:          HP EliteDesk 800 G1 SFF
@@ -133,10 +136,10 @@ Docker Version:      18.09.0
 
 ##### RHEL 7.5 (running Kubernetes)
 ```
-[root@hostname ~]# ./sysinfo.sh
+[root@domain ~]# ./sysinfo.sh
 ------------------------------------------------------------------------
 Current Date:        Thu Feb 14 15:57:16 MST 2019
-Hostname:            hostname.local
+Hostname:            domain.local
 OS:                  Red Hat Enterprise Linux Server release 7.5 (Maipo)
 Kernel:              Linux 3.10.0-862.el7.x86_64
 HW Version:          VMware Virtual Platform
@@ -182,14 +185,14 @@ Containers:          CONTAINER ID       NAME
                      3b47612a4ddf       k8s_kube-proxy_kube-proxy-r5v5c_kube-system_f6b250d2-309e-11e9-b964-005056a91740_0
                      58a3105eb78f       k8s_POD_weave-net-sk8w6_kube-system_f6b1d46d-309e-11e9-b964-005056a91740_0
                      bde13e5fd278       k8s_POD_kube-proxy-r5v5c_kube-system_f6b250d2-309e-11e9-b964-005056a91740_0
-                     bf1e33a600dd       k8s_etcd_etcd-hostname.local_kube-system_aaf41a2de5f6054f98e8846e116191eb_0
-                     f9363fcc323e       k8s_kube-scheduler_kube-scheduler-hostname.local_kube-system_b734fcc86501dde5579ce80285c0bf0c_0
-                     2ba66f42e449       k8s_kube-apiserver_kube-apiserver-hostname.local_kube-system_31305a146d9b4c5aab0182840128a57d_0
-                     5fa996ec393a       k8s_kube-controller-manager_kube-controller-manager-hostname.local_kube-system_43bf25263b7036f8626365f45552fdba_0
-                     bffa547d97cc       k8s_POD_etcd-hostname.local_kube-system_aaf41a2de5f6054f98e8846e116191eb_0
-                     120d238c154c       k8s_POD_kube-scheduler-hostname.local_kube-system_b734fcc86501dde5579ce80285c0bf0c_0
-                     ebf48857e4d1       k8s_POD_kube-apiserver-hostname.local_kube-system_31305a146d9b4c5aab0182840128a57d_0
-                     0f1360227707       k8s_POD_kube-controller-manager-hostname.local_kube-system_43bf25263b7036f8626365f45552fdba_0
+                     bf1e33a600dd       k8s_etcd_etcd-domain.local_kube-system_aaf41a2de5f6054f98e8846e116191eb_0
+                     f9363fcc323e       k8s_kube-scheduler_kube-scheduler-domain.local_kube-system_b734fcc86501dde5579ce80285c0bf0c_0
+                     2ba66f42e449       k8s_kube-apiserver_kube-apiserver-domain.local_kube-system_31305a146d9b4c5aab0182840128a57d_0
+                     5fa996ec393a       k8s_kube-controller-manager_kube-controller-manager-domain.local_kube-system_43bf25263b7036f8626365f45552fdba_0
+                     bffa547d97cc       k8s_POD_etcd-domain.local_kube-system_aaf41a2de5f6054f98e8846e116191eb_0
+                     120d238c154c       k8s_POD_kube-scheduler-domain.local_kube-system_b734fcc86501dde5579ce80285c0bf0c_0
+                     ebf48857e4d1       k8s_POD_kube-apiserver-domain.local_kube-system_31305a146d9b4c5aab0182840128a57d_0
+                     0f1360227707       k8s_POD_kube-controller-manager-domain.local_kube-system_43bf25263b7036f8626365f45552fdba_0
 ------------------------------------------------------------------------
 ```
 
@@ -200,7 +203,7 @@ Containers:          CONTAINER ID       NAME
 (0) [chad@mbp:~] $ bash sysinfo.sh
 ------------------------------------------------------------------------
 Current Date:        Wed Feb 13 20:24:18 MST 2019
-Hostname:            mbp.wifi.hostname.com
+Hostname:            mbp.wifi.domain.com
 OS:                  Mac OS X 10.14.2 (18C54)
 Kernel:              Darwin 18.2.0
 HW Version:          MacBook Pro (13-inch, 2016, Two Thunderbolt 3 ports)
@@ -222,7 +225,7 @@ Docker Version:      18.09.1
 CM-Macbook-Air:~ $ ./sysinfo.sh
 ------------------------------------------------------------------------
 Current Date:        Sun Aug 18 15:14:47 MDT 2019
-Hostname:            CM-Macbook-Air.wifi.hostname.com
+Hostname:            CM-Macbook-Air.wifi.domain.com
 OS:                  Mac OS X 10.14.6 (18G87)
 Kernel:              Darwin 18.7.0
 HW Version:          MacBook Air (Retina, 13-inch, 2019)
